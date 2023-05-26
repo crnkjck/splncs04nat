@@ -393,10 +393,10 @@ FUNCTION {format.url}
   url
   duplicate$ empty$
     { pop$ "" }
-    { "\urlprefix\url{" swap$ * "}" * }
+    % { "\urlprefix\url{" swap$ * "}" * }
+    { "\url{" swap$ * "}" * }  % changed in titto-lncs-02.bst
   if$
 }
-
 INTEGERS { nameptr namesleft numnames }
 
 
@@ -471,21 +471,23 @@ FUNCTION {format.editors}
   if$
 }
 FUNCTION {format.isbn}
-{ isbn "isbn" bibinfo.check
-  duplicate$ empty$ 'skip$
-    {
-      "ISBN " swap$ *
-    }
-  if$
+{ % isbn "isbn" bibinfo.check
+  % duplicate$ empty$ 'skip$
+  %   {
+  %    "ISBN " swap$ *
+  %   }
+  % if$
+  ""
 }
 
 FUNCTION {format.issn}
-{ issn "issn" bibinfo.check
-  duplicate$ empty$ 'skip$
-    {
-      "ISSN " swap$ *
-    }
-  if$
+{ % issn "issn" bibinfo.check
+  % duplicate$ empty$ 'skip$
+  %   {
+  %     "ISSN " swap$ *
+  %   }
+  % if$
+  ""
 }
 
 FUNCTION {format.doi}
